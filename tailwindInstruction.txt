@@ -1,0 +1,24 @@
+
+//Easiest way
+
+
+npm install tailwindcss @tailwindcss/cli  // Terminal
+
+
+src/input.css //  create a folder inside static folder src/input.css    paste the following inside input.css
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+
+
+
+
+
+//Run this command in termianl to build output.css
+npx @tailwindcss/cli -i ./static/src/input.css -o ./static/src/output.css --watch

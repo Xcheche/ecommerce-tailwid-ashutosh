@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'baton',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',  # Your main app
+     # ... (place baton.autodiscover at the very end)
+    'baton.autodiscover',
+  
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -116,8 +121,27 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']  # Directory for custom static files   
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Directory for collected static files
+# Media files (User-uploaded content)
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'  # Directory for user-uploaded files
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+BATON = {
+    'SITE_HEADER': 'Cheche',
+    'SITE_TITLE': 'Cheche Admin',
+    'INDEX_TITLE': 'Welcome to Cheche Admin',
+    'APP_INDEX_TITLE': 'Cheche App Index',
+    'MODEL_INDEX_TITLE': 'Cheche Model Index',
+    'HIDE_THEMING': True,
+    'HIDE_DASHBOARD': False,
+      # Use absolute static path
+}
+# Customizing the admin interface
+# You can add more customization options here
