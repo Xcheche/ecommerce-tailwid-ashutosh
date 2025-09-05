@@ -1,11 +1,15 @@
-
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-    <img src="{{ product.product_image.url }}" alt="product image" class="img-fluid">
-    <h1>{{ product.name }}</h1>
-    <p>{{ product.description }}</p>
-    <p>Price: {{ product.price }}</p>
+<div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6 mt-8 block hover:shadow-2xl transition-shadow duration-300">
+    <div class="flex flex-col md:flex-row items-center gap-8">
+        <img src="{{ product.product_image.url }}" alt="product image" class="w-64 h-64 object-cover rounded-lg border">
+        <div class="flex-1">
+            <h1 class="text-3xl font-bold mb-4">{{ product.name }}</h1>
+            <p class="text-gray-700 mb-4">{{ product.description }}</p>
+            <p class="text-xl font-semibold text-green-600 mb-2">Price: ${{ product.price }}</p>
+            <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">Add to Cart</button>
+        </div>
+    </div>
 </div>
 {% endblock %}
