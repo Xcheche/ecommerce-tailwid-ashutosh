@@ -1,0 +1,44 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container py-5 mx-auto text-center">
+    <h1 class="text-2xl font-bold mb-10">😃Register</h1>
+    {% if user.is_authenticated %}
+        <p>You are already logged in as {{ user.username }}.</p>
+    {% endif %}
+</div>
+
+<div class="container py-5 mx-auto flex justify-center">
+    <form class="w-2/5 bg-white shadow-md m-10 rounded px-8 pt-6 pb-8 mb-4"  action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+      <div class="mb-2">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="username">UserName:</label>
+          <div class="shadow appearance-none border rounded py-2 px-3 mr-10 text">
+            {{ form.username }}
+          </div>
+      </div>
+    <div class="mb-2">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Email:</label>
+        <div class="shadow appearance-none border rounded py-2 px-3 mr-10 text">
+            {{ form.email }}
+        </div>
+    </div>
+    <div class="mb-2">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Password:</label>
+        <div class="shadow appearance-none border rounded py-2 px-3 mr-10 text">
+            {{ form.password1 }}
+        </div>
+    </div>
+    <div class="mb-2">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Confirm Password:</label>
+        <div class="shadow appearance-none border rounded py-2 px-3 mr-10 text">
+            {{ form.password2 }}
+        </div>
+    </div>
+        <button class="bg-green-500 text-white px-4 py-2 rounded" type="submit">Register</button>
+    </form>
+</div>
+
+
+{% endblock %}

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',  # Your main app
+    'accounts',  # Your accounts app
      # ... (place baton.autodiscover at the very end)
     'baton.autodiscover',
   
