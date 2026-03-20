@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container py-8 mx-auto text-center px-4">
+    <h1 class="text-2xl font-bold mb-8">Login</h1>
+</div>
+
+<div class="container py-5 mx-auto flex justify-center px-4">
+    <form class="w-full max-w-md bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+
+        {% if form.errors %}
+            <div class="mb-4 rounded bg-red-100 text-red-700 px-4 py-2 text-sm">
+                Invalid username or password.
+            </div>
+        {% endif %}
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="id_username">Username</label>
+            <div class="shadow appearance-none border rounded py-2 px-3 text-gray-700">
+                {{ form.username }}
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="id_password">Password</label>
+            <div class="shadow appearance-none border rounded py-2 px-3 text-gray-700">
+                {{ form.password }}
+            </div>
+        </div>
+
+        <input type="hidden" name="next" value="{{ next|default:'/' }}">
+
+        <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded w-full" type="submit">
+            Login
+        </button>
+
+        <p class="text-sm text-gray-600 mt-4 text-center">
+            Don't have an account?
+            <a href="{% url 'register' %}" class="text-indigo-600 hover:underline">Create one</a>
+        </p>
+    </form>
+</div>
+
+{% endblock %}

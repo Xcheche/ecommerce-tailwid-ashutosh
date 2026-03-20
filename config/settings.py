@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'baton',
+  
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,9 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',  # Your main app
     'accounts',  # Your accounts app
-     # ... (place baton.autodiscover at the very end)
-    'baton.autodiscover',
-  
+   
 ]
 
 
@@ -134,15 +132,9 @@ MEDIA_ROOT = BASE_DIR / 'media'  # Directory for user-uploaded files
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-BATON = {
-    'SITE_HEADER': 'Cheche',
-    'SITE_TITLE': 'Cheche Admin',
-    'INDEX_TITLE': 'Welcome to Cheche Admin',
-    'APP_INDEX_TITLE': 'Cheche App Index',
-    'MODEL_INDEX_TITLE': 'Cheche Model Index',
-    'HIDE_THEMING': True,
-    'HIDE_DASHBOARD': False,
-      # Use absolute static path
-}
-# Customizing the admin interface
-# You can add more customization options here
+#Post login redirect url
+LOGIN_REDIRECT_URL = "profile"
+#Post logout redirect url
+LOGOUT_REDIRECT_URL = "login"
+#Login url for @login_required decorator
+LOGIN_URL = "login"
