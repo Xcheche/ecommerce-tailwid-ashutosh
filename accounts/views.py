@@ -43,3 +43,5 @@ def logout_view(request):
 # @redirect_authenticated_user
 def profile(request):
     return render(request, "accounts/profile.html")     
+
+    

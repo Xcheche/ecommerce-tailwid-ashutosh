@@ -33,3 +33,5 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+#TODO: Add category and tags fields to Product model and implement filtering based on them in views.    
